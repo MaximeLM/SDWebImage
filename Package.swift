@@ -16,9 +16,6 @@ let package = Package(
         .library(
             name: "SDWebImage",
             targets: ["SDWebImage"]),
-        .library(
-            name: "SDWebImageMapKit",
-            targets: ["SDWebImageMapKit"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -31,22 +28,7 @@ let package = Package(
             name: "SDWebImage",
             dependencies: [],
             path: "SDWebImage",
-            exclude: ["Private", "MapKit"],
-            cSettings: [
-                .headerSearchPath("."),
-                .headerSearchPath("Private")
-            ]
+            exclude: ["MapKit"]
         ),
-        .target(
-            name: "SDWebImageMapKit",
-            dependencies: ["SDWebImage"],
-            path: "SDWebImage",
-            sources: ["MapKit"],
-            publicHeadersPath: "MapKit",
-            cSettings: [
-                .headerSearchPath("."),
-                .headerSearchPath("Private")
-            ]
-        )
     ]
 )
